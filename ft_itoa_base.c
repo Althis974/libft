@@ -1,50 +1,52 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa.c                                        .::    .:/ .      .::   */
+/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/04 10:12:14 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/11 13:58:15 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 17:05:52 by rlossy       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/11 16:37:12 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_len(int n)
+static int	get_len(int val, int base)
 {
 	int len;
 
 	len = 1;
-	while (n /= 10)
+	while (val /= base)
 		len++;
 	return (len);
 }
 
-char		*ft_itoa(int nbr)
+char		*ft_itoa_base(int value, int base)
 {
 	char	*res;
 	int		val;
 	int		len;
+	char	*hex;
 	int		i;
 
-	if (nbr == -2147483648)
+	hex = "0123456789ABCDEF";
+	if (value == -2147483648)
 		return (ft_strdup("-2147483648"));
-	val = ft_abs(nbr);
-	len = get_len(val);
-	if (nbr < 0)
+	val = ft_abs(value);
+	len = get_len(val, base);
+	if (value < 0 && base == 10)
 		len++;
 	if ((res = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
 	i = 0;
 	while (i++ < len)
 	{
-		res[len - i] = val % 10 + '0';
-		val /= 10;
+		res[len - i] = hex[val % base];
+		val /= base;
 	}
-	if (nbr < 0)
+	if (value < 0 && base == 10)
 		res[0] = '-';
 	res[len] = '\0';
 	return (res);

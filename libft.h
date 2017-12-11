@@ -1,13 +1,14 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rlossy <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 15:17:07 by rlossy            #+#    #+#             */
-/*   Updated: 2017/11/15 12:53:19 by rlossy           ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   libft.h                                          .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/11/24 09:25:30 by rlossy       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/11 16:37:43 by rlossy      ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -96,5 +97,11 @@ int					ft_str_is_uppercase(const char *s);
 int					ft_isblank(int c);
 int					ft_iscntrl(int c);
 int					ft_isgraph(int c);
+void				ft_str_capitalizer(char *s);
+int					ft_abs(int n);
+void				ft_print_hex(unsigned int n);
+void				ft_swap(void *const a, void *const b, size_t size);
+void				sort_int_tab(int *tab, unsigned int size);
+char				*ft_itoa_base(int value, int base);
 
 #endif

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strcat.c                                      .::    .:/ .      .::   */
+/*   print_hex.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 09:19:49 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 09:19:51 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/11 15:48:56 by rlossy       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/11 16:00:20 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_print_hex(unsigned int n)
 {
-	size_t	len;
-	int		i;
+	char *hexa;
 
-	len = ft_strlen(s1);
-	i = 0;
-	while (s2[i] != '\0')
-	{
-		s1[len + i] = s2[i];
-		i++;
-	}
-	s1[len + i] = '\0';
-	return (s1);
+	hexa = "0123456789abcdef";
+	if (n >= 16)
+		ft_print_hex(n / 16);
+	ft_putchar(hexa[n % 16]);
 }

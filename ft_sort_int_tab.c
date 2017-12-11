@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strcat.c                                      .::    .:/ .      .::   */
+/*   sort_int_tab.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 09:19:49 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 09:19:51 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/11 16:20:39 by rlossy       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/11 16:26:38 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_sort_int_tab(int *tab, unsigned int size)
 {
-	size_t	len;
-	int		i;
+	unsigned int i;
+	unsigned int j;
+	unsigned int len;
 
-	len = ft_strlen(s1);
 	i = 0;
-	while (s2[i] != '\0')
+	j = 1;
+	len = 0;
+	while (len < size)
 	{
-		s1[len + i] = s2[i];
+		while (j < size)
+		{
+			if (tab[i] < tab[j])
+				ft_swap(&tab[i], &tab[j], sizeof(int));
+			j++;
+		}
 		i++;
+		len++;
+		j = 0;
 	}
-	s1[len + i] = '\0';
-	return (s1);
 }

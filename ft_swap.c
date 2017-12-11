@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strcat.c                                      .::    .:/ .      .::   */
+/*   ft_swap.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 09:19:49 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 09:19:51 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/11 16:23:37 by rlossy       #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/11 16:24:43 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_swap(void *const a, void *const b, size_t size)
 {
-	size_t	len;
-	int		i;
+	void *tmp;
 
-	len = ft_strlen(s1);
-	i = 0;
-	while (s2[i] != '\0')
-	{
-		s1[len + i] = s2[i];
-		i++;
-	}
-	s1[len + i] = '\0';
-	return (s1);
+	if (!(tmp = malloc(size)))
+		return ;
+	ft_memcpy(tmp, a, size);
+	ft_memcpy(a, b, size);
+	ft_memcpy(b, tmp, size);
+	free(tmp);
 }

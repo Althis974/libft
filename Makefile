@@ -6,11 +6,11 @@
 #    By: rlossy <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 16:26:09 by rlossy            #+#    #+#              #
-#    Updated: 2017/11/15 12:54:12 by rlossy           ###   ########.fr        #
+#    Updated: 2017/12/11 16:37:56 by rlossy      ###    #+. /#+    ###.fr      #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=   libft.a
+NAME		=	libft.a
 HEADER		=   libft.h
 FILENAMES	=   ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c
 FILENAMES	+=  ft_isdigit.c ft_isprint.c ft_itoa.c ft_memalloc.c ft_memccpy.c
@@ -27,6 +27,8 @@ FILENAMES	+=	ft_toupper.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c
 FILENAMES	+=	ft_lstiter.c ft_lstmap.c ft_str_is_alpha.c ft_str_is_numeric.c
 FILENAMES	+=	ft_str_is_printable.c ft_str_is_lowercase.c
 FILENAMES	+=	ft_str_is_uppercase.c ft_isblank.c ft_iscntrl.c ft_isgraph.c
+FILENAMES	+=	ft_str_capitalizer.c ft_abs.c ft_print_hex.c ft_swap.c
+FILENAMES	+=	ft_sort_int_tab.c ft_itoa_base.c
 
 SOURCES     =   $(addprefix ./, $(FILENAMES))
 OBJECTS     =   $(addprefix build/, $(FILENAMES:.c=.o))
@@ -45,8 +47,9 @@ fclean: clean
 	    @echo "\033[31m"
 		    rm -f $(NAME)
 
-re: fclean all
-
+re: 
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 build:
 	    @echo "\033[36m"
